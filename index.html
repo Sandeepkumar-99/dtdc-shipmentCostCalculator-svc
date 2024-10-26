@@ -9,7 +9,7 @@
 <body>
     <div id="mainContent">
     <h1>Rate Calculator</h1>
-    <form id="rateForm"></form>
+    <form id="normalForm"></form>
         <fieldset id="normalService">
             <legend>Regular Service</legend>
             <table>
@@ -32,11 +32,14 @@
                 </tr>
             </table>
             <table><tr>
-                <th><button id="normalCalculate" onclick="normalService()">Calculate</button></th>
-                <th><button id="reset" onclick="reset()" disabled>Reset</button></th>
+                <th><button id="normalCalculate">Calculate</button></th>
+                <th><button id="normalReset" disabled>Reset</button></th>
             </tr></table>
+        </form>
             
         </fieldset>
+
+        <form id="plusForm">
         <fieldset id="plusService">
             <legend>Plus Service</legend>
             <table>
@@ -59,15 +62,13 @@
                 </tr>
             </table>
             <table><tr>
-                <th><button id="plusCalculate" onclick="plusService()">Calculate</button></th>
-                <th><button id="reset" onclick="reset()" disabled>Reset</button></th>
+                <th><button id="plusCalculate" type="button">Calculate</button></th>
+                <th><button id="plusReset" disabled>Reset</button></th>
             </tr></table>
         </fieldset>
-
-
     </form>
 
-    <form id="cargoRateForm">
+    <form id="cargoForm">
         <h2>ONLY FOR CARGO (Weight above 5000gms or 5Kgs)</h2>
         <fieldset>
             <legend>Cargo Service</legend>
@@ -91,8 +92,8 @@
             </tr>
         </table>
         <table><tr>
-            <th><button id="cargoCalculate" onclick="cargoService()">Calculate</button></th>
-            <th><button id="reset" onclick="reset()" disabled>Reset</button></th>
+            <th><button id="cargoCalculate">Calculate</button></th>
+            <th><button id="cargoReset" disabled>Reset</button></th>
         </tr></table>
     </fieldset>
     </form>

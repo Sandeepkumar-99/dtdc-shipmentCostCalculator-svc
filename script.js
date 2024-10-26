@@ -27,57 +27,50 @@ var plusCalculate = document.getElementById("plusCalculate");
 var cargoCalculate = document.getElementById("cargoCalculate");
 var resetBtn = document.getElementById("reset");
 
+//resets
+const normalReset = document.getElementById("normalReset"); 
+const plusReset = document.getElementById("plusReset");
+const cargoReset = document.getElementById("cargoReset");
+
+
+//Arrays
+const regularArray = [normalLocalRate, normalTsApRate, normalMetroRate, normalNonMetroRate, normalCalculate, normalReset, normalResult];
+const plusArray = [plusLocalRate, plusTsApRate, plusMetroRate, plusNonMetroRate, plusCalculate, plusReset, plusResult];
+const cargoArray = [cargoLocalRate, cargoTsApRate, cargoMetroRate, cargoNonMetroRate, cargoCalculate, cargoReset, cargoResult];
+
+
+normalCalculate.addEventListener('click', normalService);
+plusCalculate.addEventListener('click', plusService);
+cargoCalculate.addEventListener('click', cargoService);
+
+//reset EventListeners
+normalReset.addEventListener('click', () => reset(regularArray));
+plusReset.addEventListener('click', () => reset(plusArray));
+cargoReset.addEventListener('click', () => reset(cargoArray));
+
 function normalService(){
     let localWeight = parseFloat(normalLocalRate.value);
     let tsApWeight = parseFloat(normalTsApRate.value);
     let metroWeight = parseFloat(normalMetroRate.value);
     let nonMetroWeight = parseFloat(normalNonMetroRate.value);
     let result = 0;
-    console.log(" outside if localWeight"+localWeight);
-
     if(localWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((localWeight/250)*25)+45;
-        console.log("result"+result);
-        normalTsApRate.disabled = true;
-        normalMetroRate.disabled = true;
-        normalNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        normalCalculate.disabled = true;
+        disable(regularArray,0);
     }
     if(tsApWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((tsApWeight/250)*30)+70;
-        console.log("result"+result);
-        document.getElementById("normalLocalRate").disabled = true;
-        normalMetroRate.disabled = true;
-        normalNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        normalCalculate.disabled = false;
+        disable(regularArray,1);
     }
     if(metroWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((metroWeight/250)*50)+125;
-        console.log("result"+result);
-        document.getElementById("normalLocalRate").disabled = true;
-        normalTsApRate.disabled = true;
-        normalNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        normalCalculate.disabled = false;
-        
+        disable(regularArray,2);
     }
     if(nonMetroWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((nonMetroWeight/250)*70)+130;
-        console.log("result"+result);
-        document.getElementById("normalLocalRate").disabled = true;
-        normalMetroRate.disabled = true;
-        normalTsApRate.disabled = true;
-        resetBtn.disabled = false;
-        normalCalculate.disabled = false;
+        disable(regularArray,3);
     }
-    console.log(result)
-    normalResult.innerText+=result
+    normalResult.innerText+=" "+result;
     normalResult.style.display="block";
 }
 
@@ -87,48 +80,23 @@ function plusService(){
     let metroWeight = parseFloat(plusMetroRate.value);
     let nonMetroWeight = parseFloat(plusNonMetroRate.value);
     let result = 0;
-    console.log("Outside if localWeight"+localWeight);
     if(localWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((localWeight/500)*50)+75;
-        console.log("result"+result);
-        plusTsApRate.disabled = true;
-        plusMetroRate.disabled = true;
-        plusNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        plusCalculate.disabled = true;
+        disable(plusArray,0);
     }
     if(tsApWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((tsApWeight/500)*135)+105;
-        console.log("result"+result);
-        plusLocalRate.disabled = true;
-        plusMetroRate.disabled = true;
-        plusNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        plusCalculate.disabled = false;
+        disable(plusArray,1);
     }
     if(metroWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((metroWeight/500)*180)+120;
-        console.log("result"+result);
-        plusLocalRate.disabled = true;
-        plusTsApRate.disabled = true;
-        plusNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        plusCalculate.disabled = false;
+        disable(plusArray,2);
     }
     if(nonMetroWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((nonMetroWeight/500)*210)+130;
-        console.log("result"+result);
-        plusLocalRate.disabled = true;
-        plusTsApRate.disabled = true;
-        plusMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        plusCalculate.disabled = false;
+        disable(plusArray,3);
     }
-    plusResult.innerText+=result
+    plusResult.innerText+=" "+result;
     plusResult.style.display="block";
 }
 
@@ -138,71 +106,49 @@ function cargoService(){
     let metroWeight = parseFloat(cargoMetroRate.value);
     let nonMetroWeight = parseFloat(cargoNonMetroRate.value);
     let result = 0;
-    console.log("Outside if localWeight"+localWeight);
     if(localWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((localWeight/1000)*60);
-        console.log("result"+result);
-        cargoTsApRate.disabled = true;
-        cargoMetroRate.disabled = true;
-        cargoNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        cargoCalculate.disabled = true;
+        disable(cargoArray,0);
     }
     if(tsApWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((tsApWeight/1000)*100);
-        console.log("result"+result);
-        cargoLocalRate.disabled = true;
-        cargoMetroRate.disabled = true;
-        cargoNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        cargoCalculate.disabled = false;
+        disable(cargoArray,1);
     }
     if(metroWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((nonMetroWeight/1000)*175);
-        console.log("result"+result);
-        cargoLocalRate.disabled = true;
-        cargoTsApRate.disabled = true;
-        cargoNonMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        cargoCalculate.disabled = false;
-        
+        disable(cargoArray,2);
     }
     if(nonMetroWeight>=0){
-        console.log(" inside if localWeight"+localWeight);
         result= ((nonMetroWeight/1000)*200);
-        console.log("result"+result);
-        cargoLocalRate.disabled = true;
-        cargoTsApRate.disabled = true;
-        cargoMetroRate.disabled = true;
-        resetBtn.disabled = false;
-        cargoCalculate.disabled = false;
+        disable(cargoArray,3);
     }
-    cargoResult.innerText+=result
+    cargoResult.innerText+=" "+result;
     cargoResult.style.display="block";
 }
 
-function reset(){
-    console.log("reset");
-    const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => {
-        input.disabled = false;
-        input.value="";
-    });
-    const para = document.querySelectorAll('p');
-    para.forEach(para => {
-        para.innerText="Total Rate:";
-        para.style.display="none";
+function reset(arr){
+    let i = 0;
+    while(i<=3){
+        arr[i].value="";
+        arr[i].disabled=false;
+        i++
+    }
+    arr[4].disabled=false;
+    arr[5].disabled=true;
+    arr[6].innerText = "Total Rate:"
+    arr[6].style.display="none";    
+}
 
-    });
-    const calculateButtons = document.querySelectorAll('button');
-    calculateButtons.forEach(button => {
-        button.disabled = false;
-    });
-    const resetButtons = document.querySelectorAll('#reset');
-    resetButtons.forEach(button => {
-        button.disabled = true;
-    });
+function disable(arr,elem){
+    let i = 0
+    while(i<=3){
+        if(i==elem){
+            arr[i].disabled=false;            
+        }else{
+            arr[i].disabled=true;
+        }
+        i++
+    }
+    arr[4].disabled = true;
+    arr[5].disabled = false;
 }
