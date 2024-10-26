@@ -54,24 +54,27 @@ function normalService(){
     let metroWeight = parseFloat(normalMetroRate.value);
     let nonMetroWeight = parseFloat(normalNonMetroRate.value);
     let result = 0;
-    if(localWeight>=0){
+    if(localWeight>0){
         result= ((localWeight/250)*25)+45;
         disable(regularArray,0);
-    }
-    if(tsApWeight>=0){
+        resultOutPut(result, regularArray);
+    }else if(tsApWeight>0){
         result= ((tsApWeight/250)*30)+70;
         disable(regularArray,1);
-    }
-    if(metroWeight>=0){
+        resultOutPut(result, regularArray);
+    }else if(metroWeight>0){
         result= ((metroWeight/250)*50)+125;
         disable(regularArray,2);
-    }
-    if(nonMetroWeight>=0){
+        resultOutPut(result, regularArray);
+    }else if(nonMetroWeight>0){
         result= ((nonMetroWeight/250)*70)+130;
         disable(regularArray,3);
+        resultOutPut(result, regularArray);
+    }else{
+        alert("Please enter a weight");
     }
-    normalResult.innerText+=" "+result;
-    normalResult.style.display="block";
+    // normalResult.innerText+=" "+result;
+    // normalResult.style.display="block";
 }
 
 function plusService(){
@@ -80,24 +83,25 @@ function plusService(){
     let metroWeight = parseFloat(plusMetroRate.value);
     let nonMetroWeight = parseFloat(plusNonMetroRate.value);
     let result = 0;
-    if(localWeight>=0){
+    if(localWeight>0){
         result= ((localWeight/500)*50)+75;
         disable(plusArray,0);
-    }
-    if(tsApWeight>=0){
+        resultOutPut(result, plusArray);
+    }else if(tsApWeight>0){
         result= ((tsApWeight/500)*135)+105;
         disable(plusArray,1);
-    }
-    if(metroWeight>=0){
+        resultOutPut(result, plusArray);
+    }else if(metroWeight>0){
         result= ((metroWeight/500)*180)+120;
         disable(plusArray,2);
-    }
-    if(nonMetroWeight>=0){
+        resultOutPut(result, plusArray);
+    }else if(nonMetroWeight>0){
         result= ((nonMetroWeight/500)*210)+130;
         disable(plusArray,3);
+        resultOutPut(result, plusArray);
+    }else{
+        alert("Please enter a weight");
     }
-    plusResult.innerText+=" "+result;
-    plusResult.style.display="block";
 }
 
 function cargoService(){
@@ -106,24 +110,25 @@ function cargoService(){
     let metroWeight = parseFloat(cargoMetroRate.value);
     let nonMetroWeight = parseFloat(cargoNonMetroRate.value);
     let result = 0;
-    if(localWeight>=0){
+    if(localWeight>0){
         result= ((localWeight/1000)*60);
         disable(cargoArray,0);
-    }
-    if(tsApWeight>=0){
+        resultOutPut(result, cargoArray);
+    }else if(tsApWeight>0){
         result= ((tsApWeight/1000)*100);
         disable(cargoArray,1);
-    }
-    if(metroWeight>=0){
+        resultOutPut(result, cargoArray);
+    }else if(metroWeight>0){
         result= ((nonMetroWeight/1000)*175);
         disable(cargoArray,2);
-    }
-    if(nonMetroWeight>=0){
+        resultOutPut(result, cargoArray);
+    }else if(nonMetroWeight>0){
         result= ((nonMetroWeight/1000)*200);
         disable(cargoArray,3);
+        resultOutPut(result, cargoArray);
+    }else{
+        alert("Please enter a weight");
     }
-    cargoResult.innerText+=" "+result;
-    cargoResult.style.display="block";
 }
 
 function reset(arr){
@@ -135,20 +140,23 @@ function reset(arr){
     }
     arr[4].disabled=false;
     arr[5].disabled=true;
-    arr[6].innerText = "Total Rate:"
+    arr[6].innerText = "Total Cost: Rs."
     arr[6].style.display="none";    
 }
 
 function disable(arr,elem){
     let i = 0
     while(i<=3){
-        if(i==elem){
-            arr[i].disabled=false;            
-        }else{
-            arr[i].disabled=true;
-        }
+        arr[i].disabled=true;
+
         i++
     }
     arr[4].disabled = true;
     arr[5].disabled = false;
+}
+
+function resultOutPut(sum, arr){
+    console.log("Result: ", sum);
+    arr[6].innerText+=" "+sum;
+    arr[6].style.display="block";
 }

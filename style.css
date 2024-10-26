@@ -1,14 +1,31 @@
+@media (max-width: 768px) { /* Adjust for mobile screens */
+  body {
+    flex-direction: column; /* Stack elements vertically on mobile */
+  }
+}
+
 body{
-    background-color: rgb(86, 86, 199);
+    background-color: #0E2C53;
     color: white;
 }
+
+body {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  align-items: baseline;
+  height: 100vh; /* Set height to viewport height, making the body take up full screen on mobile and desktop */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font-family: Arial, sans-serif; /* Replace with your desired font */
+}
+
 button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
   border: solid 1px rgb(13, 13, 14);
-  border-radius: 50px; /* added rounded corners */
-  background-color: #333;
+  background-color: #0E2C53;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -30,15 +47,30 @@ table {
 }
 
 td {
-    border: 1px solid #ddd; /* added borders to table cells */
     padding: 8px; /* added padding to table cells */
     text-align: center; /* added centering to table contents */
 }
 button:hover {
-  background-color: rgb(86, 86, 199);
+  background-color: #dc3545;;
 }
 
 button:disabled {
   background-color: gray;
 }
 
+#mainContent{
+  border: black
+  solid 2px;
+  background-color: white;
+  padding: 10px;
+
+}
+
+fieldset{
+  color: black;
+  border: solid 1px #0E2C53;
+}
+h2, h1,p{
+  color: black;
+  text-align: center;
+}
