@@ -4,21 +4,19 @@
   }
 }
 
-body{
-    background-color: #0E2C53;
-    color: white;
-}
-
 body {
+  background-color: #0E2C53;
+  color: white;
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   align-items: baseline;
-  height: 100vh; /* Set height to viewport height, making the body take up full screen on mobile and desktop */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
-  font-family: Arial, sans-serif; /* Replace with your desired font */
+  font-family: "Acumin Pro"; /* Replace with your desired font */
+  max-height: 100vh; /* Set maximum height to viewport height, making the body take up full screen on mobile and desktop */
 }
+
 
 button {
   display: inline-block;
