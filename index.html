@@ -5,94 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate Calculator</title>
     <link rel="stylesheet" href="./style.css"/>
+    <link rel="icon" href="./logo.png" type="image/png"/>    
 </head>
 <body>
     <div id="mainContent">
-    <h1>Rate Calculator</h1>
-    <form id="rateForm"></form>
+    <h1>Shipment Cost Calculator</h1>
+    <form id="normalForm"></form>
         <fieldset id="normalService">
             <legend>Regular Service</legend>
             <table>
-                <tr><p id="normalResult">Total Rate:</p></tr>
+                <tr><p id="normalResult">Total Cost: Rs.</p></tr>
                 <tr>
                     <td><fieldset><legend>Local</legend>
-                        <input type="number" id="normalLocalRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="normalLocalRate" placeholder="Enter Weight (gms)" min="250"/>
                     </fieldset></td>
                     <td><fieldset><legend>TS & AP</legend>
-                        <input type="number" id="normalTsApRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="normalTsApRate" placeholder="Enter Weight (gms)" min="250"/>
                     </fieldset></td>
                 </tr>
                 <tr>
                     <td><fieldset><legend>Metro Cities</legend>
-                        <input type="number" id="normalMetroRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="normalMetroRate" placeholder="Enter Weight (gms)" min="250"/>
                     </fieldset></td>
                     <td><fieldset><legend>Non Metro Cities</legend>
-                        <input type="number" id="normalNonMetroRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="normalNonMetroRate" placeholder="Enter Weight (gms)" min="250"/>
                     </fieldset></td>
                 </tr>
             </table>
             <table><tr>
-                <th><button id="normalCalculate" onclick="normalService()">Calculate</button></th>
-                <th><button id="reset" onclick="reset()" disabled>Reset</button></th>
+                <th><button id="normalCalculate">Calculate</button></th>
+                <th><button id="normalReset" disabled>Reset</button></th>
             </tr></table>
+        </form>
             
         </fieldset>
+
+        <form id="plusForm">
         <fieldset id="plusService">
             <legend>Plus Service</legend>
             <table>
-                <tr><p id="plusResult">Total Rate:</p></tr>
+                <tr><p id="plusResult">Total Cost: Rs.</p></tr>
                 <tr>
                     <td><fieldset><legend>Local</legend>
-                        <input type="number" id="plusLocalRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="plusLocalRate" placeholder="Enter Weight (gms)" min="500"/>
                     </fieldset></td>
                     <td><fieldset><legend>TS & AP</legend>
-                        <input type="number" id="plusTsApRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="plusTsApRate" placeholder="Enter Weight (gms)" min="500"/>
                     </fieldset></td>
                 </tr>
                 <tr>
                     <td><fieldset><legend>Metro Cities</legend>
-                        <input type="number" id="plusMetroRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="plusMetroRate" placeholder="Enter Weight (gms)" min="500"/>
                     </fieldset></td>
                     <td><fieldset><legend>Non Metro Cities</legend>
-                        <input type="number" id="plusNonMetroRate" placeholder="Enter Weight (gms)" min="0"/>
+                        <input type="number" id="plusNonMetroRate" placeholder="Enter Weight (gms)" min="500"/>
                     </fieldset></td>
                 </tr>
             </table>
             <table><tr>
-                <th><button id="plusCalculate" onclick="plusService()">Calculate</button></th>
-                <th><button id="reset" onclick="reset()" disabled>Reset</button></th>
+                <th><button id="plusCalculate" type="button">Calculate</button></th>
+                <th><button id="plusReset" disabled>Reset</button></th>
             </tr></table>
         </fieldset>
-
-
     </form>
 
-    <form id="cargoRateForm">
+    <form id="cargoForm">
         <h2>ONLY FOR CARGO (Weight above 5000gms or 5Kgs)</h2>
         <fieldset>
             <legend>Cargo Service</legend>
         <table>
-            <tr><p id="cargoResult">Total Rate:</p></tr>
+            <tr><p id="cargoResult">Total Cost: Rs.</p></tr>
             <tr>
                 <td><fieldset><legend>Local</legend>
-                    <input type="number" id="cargoLocalRate" placeholder="Enter Weight (gms)" min="0"/>
+                    <input type="number" id="cargoLocalRate" placeholder="Enter Weight (gms)" min="5000"/>
                 </fieldset></td>
                 <td><fieldset><legend>TS & AP</legend>
-                    <input type="number" id="cargoTsApRate" placeholder="Enter Weight (gms)" min="0"/>
+                    <input type="number" id="cargoTsApRate" placeholder="Enter Weight (gms)" min="5000"/>
                 </fieldset></td>
             </tr>
             <tr>
                 <td><fieldset><legend>Metro Cities</legend>
-                    <input type="number" id="cargoMetroRate" placeholder="Enter Weight (gms)" min="0"/>
+                    <input type="number" id="cargoMetroRate" placeholder="Enter Weight (gms)" min="5000"/>
                 </fieldset></td>
                 <td><fieldset><legend>Non Metro Cities</legend>
-                    <input type="number" id="cargoNonMetroRate" placeholder="Enter Weight (gms)" min="0"/>
+                    <input type="number" id="cargoNonMetroRate" placeholder="Enter Weight (gms)" min="5000"/>
                 </fieldset></td>
             </tr>
         </table>
         <table><tr>
-            <th><button id="cargoCalculate" onclick="cargoService()">Calculate</button></th>
-            <th><button id="reset" onclick="reset()" disabled>Reset</button></th>
+            <th><button id="cargoCalculate">Calculate</button></th>
+            <th><button id="cargoReset" disabled>Reset</button></th>
         </tr></table>
     </fieldset>
     </form>
