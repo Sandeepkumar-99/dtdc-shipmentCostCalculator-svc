@@ -72,3 +72,6 @@ h2, h1,p{
   color: black;
   text-align: center;
 }
+p{
+  font-weight: bold;
+}
