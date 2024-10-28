@@ -55,26 +55,24 @@ function normalService(){
     let nonMetroWeight = parseFloat(normalNonMetroRate.value);
     let result = 0;
     if(localWeight>0){
-        result= ((localWeight/250)*25)+45;
+        result = (localWeight>250)?((localWeight/500)*30)+35:55;
         disable(regularArray,0);
         resultOutPut(result, regularArray);
     }else if(tsApWeight>0){
-        result= ((tsApWeight/250)*30)+70;
+        result = (tsApWeight>250)?((tsApWeight/500)*45)+50:80;
         disable(regularArray,1);
         resultOutPut(result, regularArray);
     }else if(metroWeight>0){
-        result= ((metroWeight/250)*50)+125;
+        result = (metroWeight>250)?((metroWeight/500)*90)+65:135;
         disable(regularArray,2);
         resultOutPut(result, regularArray);
     }else if(nonMetroWeight>0){
-        result= ((nonMetroWeight/250)*70)+130;
+        result = (nonMetroWeight>250)?((nonMetroWeight/500)*105)+70:160;
         disable(regularArray,3);
         resultOutPut(result, regularArray);
     }else{
         alert("Please enter a weight");
     }
-    // normalResult.innerText+=" "+result;
-    // normalResult.style.display="block";
 }
 
 function plusService(){
