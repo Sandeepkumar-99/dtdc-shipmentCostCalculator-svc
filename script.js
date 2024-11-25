@@ -55,19 +55,19 @@ function normalService(){
     let nonMetroWeight = parseFloat(normalNonMetroRate.value);
     let result = 0;
     if(localWeight>0){
-        result = (localWeight>250)?((localWeight/500)*30)+35:55;
+        result = (localWeight>250)?((localWeight/500)*40)+25:55;
         disable(regularArray,0);
         resultOutPut(result, regularArray);
     }else if(tsApWeight>0){
-        result = (tsApWeight>250)?((tsApWeight/500)*45)+50:80;
+        result = (tsApWeight>250)?((tsApWeight/500)*55)+40:80;
         disable(regularArray,1);
         resultOutPut(result, regularArray);
     }else if(metroWeight>0){
-        result = (metroWeight>250)?((metroWeight/500)*90)+65:135;
+        result = (metroWeight>250)?((metroWeight/500)*100)+55:135;
         disable(regularArray,2);
         resultOutPut(result, regularArray);
     }else if(nonMetroWeight>0){
-        result = (nonMetroWeight>250)?((nonMetroWeight/500)*105)+70:160;
+        result = (nonMetroWeight>250)?((nonMetroWeight/500)*115)+60:160;
         disable(regularArray,3);
         resultOutPut(result, regularArray);
     }else{
