@@ -43,7 +43,7 @@ normalCalculate.addEventListener('click', normalService);
 plusCalculate.addEventListener('click', plusService);
 cargoCalculate.addEventListener('click', cargoService);
 
-//reset EventListeners
+//reset EventListener
 normalReset.addEventListener('click', () => reset(regularArray));
 plusReset.addEventListener('click', () => reset(plusArray));
 cargoReset.addEventListener('click', () => reset(cargoArray));
